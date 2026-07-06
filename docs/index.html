@@ -101,14 +101,12 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 .mq i{font-style:normal;color:var(--yellow)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-/* ---------- pains: tg bubbles ---------- */
-.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:10px}
-.pain .bubble{background:#fff;border:1.5px solid var(--line);border-radius:16px 16px 16px 4px;padding:16px 18px;font-size:16px;position:relative;box-shadow:0 8px 24px rgba(16,16,20,.06)}
-.pain .bubble .ts{display:block;text-align:right;font-size:12px;color:var(--muted);margin-top:8px}
-.pain .bubble.is-night{background:var(--night);color:#E7E7EF;border-color:var(--night)}
-.pain .bubble.is-night .ts{color:#8B8B9C}
-.pain p{margin-top:16px;color:var(--muted);font-size:15.5px}
-.pain p b{color:var(--ink)}
+/* ---------- use cases ---------- */
+.ucs{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.uc{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 8px 24px rgba(16,16,20,.05)}
+.uc-tag{display:inline-block;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:32px;line-height:1;background:var(--yellow);padding:4px 12px 7px;border-radius:9px;margin-bottom:16px}
+.uc p{color:var(--muted);font-size:16px}
+.uc p b{color:var(--ink)}
 
 /* ---------- steps ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:step}
@@ -152,15 +150,14 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 .night-points li{padding:10px 0 10px 32px;position:relative}
 .night-points li::before{content:'';position:absolute;left:0;top:16px;width:16px;height:16px;background:var(--blue);border-radius:5px}
 
-/* ---------- compare ---------- */
-.cmp-scroll{overflow-x:auto}
-.cmp{display:grid;grid-template-columns:1.4fr 1fr 1fr;min-width:640px;border:2px solid var(--ink);border-radius:20px;overflow:hidden;background:var(--ink);gap:1.5px}
-.cmp>div{background:var(--paper);padding:18px 22px;font-size:15.5px}
-.cmp .cmp-h{font-weight:800;font-size:16px;background:var(--plate)}
-.cmp .cmp-us{background:#FFFBE2;font-weight:600}
-.cmp .cmp-crit{color:var(--muted)}
-.cmp .yes{color:var(--blue-dark);font-weight:700}
-.cmp .no{color:#A44}
+/* ---------- integrations marquee ---------- */
+.imq{overflow:hidden;padding:9px 0}
+.imq-track{display:flex;width:max-content;animation:mq 44s linear infinite}
+.imq-rev .imq-track{animation-direction:reverse;animation-duration:52s}
+.imq-half{display:flex;gap:14px;padding-right:14px}
+.ichip{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;font-weight:700;font-size:15px;white-space:nowrap}
+.ichip i{width:22px;height:22px;border-radius:6px;background:var(--plate);border:1px dashed #C4C4BA;flex-shrink:0}
+.int-note{font-size:14.5px;color:var(--muted);margin-top:26px;text-align:center}
 
 /* ---------- pricing ---------- */
 .beta-bar{background:var(--yellow);border:2px solid var(--ink);border-radius:18px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:44px;box-shadow:6px 6px 0 var(--ink)}
@@ -215,7 +212,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
-  .mq-track{animation:none}
+  .mq-track,.imq-track{animation:none}
   .msg{opacity:1;transform:none;transition:none}
   [data-plx]{transform:none!important}
 }
@@ -224,7 +221,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 @media (max-width:960px){
   .hero-grid{grid-template-columns:1fr}
   .hero-visual{min-height:400px;max-width:520px}
-  .pains,.steps,.plans{grid-template-columns:1fr;gap:20px}
+  .steps,.plans,.ucs{grid-template-columns:1fr;gap:20px}
   .feat,.night-grid,.final-grid{grid-template-columns:1fr}
   .feat.rev .feat-media{order:0}
   .chat{margin:0 auto}
@@ -253,7 +250,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
     <div class="hero-grid">
       <div>
         <h1>
-          <span class="row">Ваш канал</span>
+          <span class="row">Ваш ТГ-канал</span>
           <span class="row"><span class="hl">уже магазин</span></span>
         </h1>
         <p class="sub">Вставьте ссылку на Telegram-канал. ИИ найдёт товары в постах, соберёт каталог, отретуширует фото до студийного уровня и будет сам отвечать покупателям. Витрина с покупкой в один клик готова через пару минут.</p>
@@ -298,25 +295,26 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
   </div>
 </div>
 
-<!-- ============ PAINS ============ -->
+<!-- ============ USE CASES ============ -->
 <section class="sec">
   <div class="wrap">
-    <h2 class="disp rv">Продавать постами <span class="hl">тяжело</span></h2>
-    <div class="pains">
-      <div class="pain rv">
-        <div class="bubble is-night">Здравствуйте! А какой состав ткани? И до Казани доставка есть?<span class="ts">01:47</span></div>
-        <p><b>Вопросы приходят ночью.</b> Клиент не ждёт: не ответили за час, и он купил у других.</p>
+    <h2 class="disp rv">Что меняется <span class="hl">в вашей нише</span></h2>
+    <div class="ucs">
+      <div class="uc rv">
+        <span class="uc-tag">Винтаж и ресейл</span>
+        <p><b>Фильтры вместо ленты.</b> Клиент находит вещь по бренду, размеру и цене за секунды, а не листает сотни постов в канале. Редкие вещи быстрее встречают своего покупателя.</p>
       </div>
-      <div class="pain rv">
-        <div class="bubble">Скиньте пожалуйста всё что есть в наличии в 44-46 🙏<span class="ts">14:02</span></div>
-        <p><b>Каталога нет.</b> Наличие живёт в голове и заметках, менеджер листает канал вручную.</p>
+      <div class="uc rv">
+        <span class="uc-tag">Handmade и украшения</span>
+        <p><b>Единый стиль без фотографа.</b> Фото изделий во всём каталоге выглядят как одна съёмка. Коллекции и наличие ведутся в пару кликов, а не в альбомах и заметках.</p>
       </div>
-      <div class="pain rv">
-        <div class="bubble">
-          <div class="ph" style="min-height:90px;border-radius:10px"><em>МАКЕТ 3: типичное фото «как получилось»</em></div>
-          <span class="ts">фото из примерочной</span>
-        </div>
-        <p><b>Фото не продают.</b> Свет из примерочной и мятый фон съедают половину кликов по товару.</p>
+      <div class="uc rv">
+        <span class="uc-tag">Техника и гаджеты</span>
+        <p><b>Цены всегда актуальные.</b> Курс скакнул: цены обновились во всём каталоге сразу. Покупатель сравнивает конфигурации фильтрами, а не листает десять постов про один гаджет.</p>
+      </div>
+      <div class="uc rv">
+        <span class="uc-tag">Одежда и косметика</span>
+        <p><b>Продажи, пока вы спите.</b> ИИ-продавец отвечает про размеры и составы даже ночью, а постоянные клиенты повторяют заказ в один клик в вашем приложении.</p>
       </div>
     </div>
   </div>
@@ -391,6 +389,22 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 
     <div class="feat">
       <div class="rv">
+        <h3>Витрина в стиле <span class="hl">вашего бренда</span></h3>
+        <p>ИИ считывает характер вашего канала и собирает витрину под него: палитра, шрифты, логотип, баннеры акций. Это не шаблон конструктора, а продолжение бренда.</p>
+        <ul>
+          <li>Уникальная палитра и фирменные шрифты подбираются автоматически</li>
+          <li>Баннеры новинок и акций рисуются из ваших же карточек</li>
+          <li>Нет логотипа: предложим готовые варианты на выбор</li>
+          <li>Стиль можно перенастроить в любой момент, бесплатно</li>
+        </ul>
+      </div>
+      <div class="feat-media rv">
+        <div class="ph ph-wide" style="border-radius:18px"><em>МАКЕТ 7: одна витрина в трёх фирменных стилях (разные палитры, шрифты, баннеры)</em></div>
+      </div>
+    </div>
+
+    <div class="feat rev">
+      <div class="rv">
         <h3>Один каталог. Продажи <span class="hl">везде</span></h3>
         <p>Клиент из канала покупает в mini app, клиент из Instagram или VK попадает на сайт, постоянные ставят ваше приложение с бонусами на телефон. Каталог один, обновляется везде сразу.</p>
         <ul>
@@ -436,20 +450,34 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
   </div>
 </section>
 
-<!-- ============ COMPARE ============ -->
+<!-- ============ INTEGRATIONS ============ -->
 <section class="sec">
   <div class="wrap">
-    <h2 class="disp rv">Конструкторы просят каталог.<br>Мы его <span class="hl">делаем</span></h2>
-    <div class="cmp-scroll rv">
-      <div class="cmp">
-        <div class="cmp-h">Что сравниваем</div><div class="cmp-h">Shopifier</div><div class="cmp-h">Обычный конструктор</div>
-        <div class="cmp-crit">Запуск магазина</div><div class="cmp-us yes">2 минуты, нужна только ссылка</div><div class="no">Вечер на заведение карточек или выгрузка XML</div>
-        <div class="cmp-crit">Фото товаров</div><div class="cmp-us yes">Студийная ретушь каждой карточки</div><div class="no">Как сняли, так и будет</div>
-        <div class="cmp-crit">Вопросы покупателей</div><div class="cmp-us yes">ИИ отвечает 24/7 и собирает заказ</div><div class="no">Отвечаете сами</div>
-        <div class="cmp-crit">Продажи вне Telegram</div><div class="cmp-us yes">Сайт, приложение, контент для соцсетей</div><div class="no">Только Telegram</div>
-        <div class="cmp-crit">Комиссия с продаж</div><div class="cmp-us yes">0 ₽</div><div class="cmp-crit">Обычно 0 ₽</div>
+    <h2 class="disp rv">Работает с тем, чем вы <span class="hl">уже пользуетесь</span></h2>
+    <p class="sub rv" style="margin-bottom:40px">Оплата, доставка, склад и CRM подключаются из коробки, каталог и остатки обновляются сами.</p>
+  </div>
+  <div class="imq rv" aria-label="Интеграции: склад, оплата, CRM">
+    <div class="imq-track">
+      <div class="imq-half">
+        <span class="ichip"><i></i>МойСклад</span><span class="ichip"><i></i>1С</span><span class="ichip"><i></i>ЮKassa</span><span class="ichip"><i></i>СБП</span><span class="ichip"><i></i>Т-Банк</span><span class="ichip"><i></i>Robokassa</span><span class="ichip"><i></i>CloudPayments</span><span class="ichip"><i></i>Импорт с Wildberries</span><span class="ichip"><i></i>Импорт с Ozon</span><span class="ichip"><i></i>amoCRM</span><span class="ichip"><i></i>Битрикс24</span><span class="ichip"><i></i>RetailCRM</span>
+      </div>
+      <div class="imq-half">
+        <span class="ichip"><i></i>МойСклад</span><span class="ichip"><i></i>1С</span><span class="ichip"><i></i>ЮKassa</span><span class="ichip"><i></i>СБП</span><span class="ichip"><i></i>Т-Банк</span><span class="ichip"><i></i>Robokassa</span><span class="ichip"><i></i>CloudPayments</span><span class="ichip"><i></i>Импорт с Wildberries</span><span class="ichip"><i></i>Импорт с Ozon</span><span class="ichip"><i></i>amoCRM</span><span class="ichip"><i></i>Битрикс24</span><span class="ichip"><i></i>RetailCRM</span>
       </div>
     </div>
+  </div>
+  <div class="imq imq-rev rv" aria-label="Интеграции: доставка и трафик">
+    <div class="imq-track">
+      <div class="imq-half">
+        <span class="ichip"><i></i>СДЭК</span><span class="ichip"><i></i>Boxberry</span><span class="ichip"><i></i>Почта России</span><span class="ichip"><i></i>Яндекс Доставка</span><span class="ichip"><i></i>DPD</span><span class="ichip"><i></i>5Post</span><span class="ichip"><i></i>Telegram Ads</span><span class="ichip"><i></i>Яндекс Метрика</span><span class="ichip"><i></i>Яндекс Директ</span><span class="ichip"><i></i>VK Реклама</span>
+      </div>
+      <div class="imq-half">
+        <span class="ichip"><i></i>СДЭК</span><span class="ichip"><i></i>Boxberry</span><span class="ichip"><i></i>Почта России</span><span class="ichip"><i></i>Яндекс Доставка</span><span class="ichip"><i></i>DPD</span><span class="ichip"><i></i>5Post</span><span class="ichip"><i></i>Telegram Ads</span><span class="ichip"><i></i>Яндекс Метрика</span><span class="ichip"><i></i>Яндекс Директ</span><span class="ichip"><i></i>VK Реклама</span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="int-note rv">Не нашли свой сервис: напишите нам, участникам беты подключаем интеграции по запросу.</p>
   </div>
 </section>
 
