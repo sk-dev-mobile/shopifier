@@ -110,31 +110,6 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 .pain p{margin-top:16px;color:var(--muted);font-size:15.5px}
 .pain p b{color:var(--ink)}
 
-/* ---------- numbers ---------- */
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:20px;overflow:hidden}
-.num{background:var(--paper);padding:30px 26px}
-.num b{font-family:var(--disp);font-weight:900;font-size:clamp(48px,5.5vw,74px);line-height:.9;display:block}
-.num b i{font-style:normal;color:var(--blue)}
-.num span{font-size:14.5px;color:var(--muted);display:block;margin-top:8px;line-height:1.45}
-.nums-foot{font-size:12.5px;color:var(--muted);margin-top:14px}
-
-/* ---------- before/after ---------- */
-.ba{position:relative;border-radius:20px;overflow:hidden;border:2px solid var(--ink);aspect-ratio:16/10;user-select:none;touch-action:none;max-width:880px;margin:0 auto}
-.ba-side{position:absolute;inset:0}
-.ba-after{clip-path:inset(0 0 0 50%)}
-.ba-fill{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.ba-before .ba-fill{background:linear-gradient(135deg,#B9B4A8,#8E8A80)}
-.ba-after .ba-fill{background:linear-gradient(135deg,#E9E6DC,#CFCBBE)}
-.ba-before .ba-fill em{transform:translateX(-55%)}
-.ba-after .ba-fill em{transform:translateX(55%)}
-.ba-tag{position:absolute;top:16px;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:22px;padding:2px 12px;border-radius:8px}
-.ba-before .ba-tag{left:16px;background:var(--ink);color:#fff}
-.ba-after .ba-tag{right:16px;background:var(--yellow);color:var(--ink)}
-.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:4;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
-.ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;z-index:5;box-shadow:0 8px 20px rgba(38,51,232,.4);letter-spacing:2px}
-.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:6}
-.ba-hint{text-align:center;font-size:14px;color:var(--muted);margin-top:14px}
-
 /* ---------- steps ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:step}
 .step{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:28px;position:relative}
@@ -152,6 +127,9 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 .feat li{padding:9px 0 9px 30px;position:relative;font-size:16px}
 .feat li::before{content:'';position:absolute;left:0;top:15px;width:16px;height:16px;background:var(--yellow);border:2px solid var(--ink);border-radius:5px}
 .feat.rev .feat-media{order:-1}
+.media-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.media-pair figure{margin:0}
+.media-pair figcaption{font-size:13px;font-weight:700;margin-top:8px;text-align:center;color:var(--muted)}
 
 /* ---------- night chat ---------- */
 .night{background:var(--night);color:#EDEDF4}
@@ -247,7 +225,6 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
   .hero-grid{grid-template-columns:1fr}
   .hero-visual{min-height:400px;max-width:520px}
   .pains,.steps,.plans{grid-template-columns:1fr;gap:20px}
-  .nums{grid-template-columns:1fr 1fr}
   .feat,.night-grid,.final-grid{grid-template-columns:1fr}
   .feat.rev .feat-media{order:0}
   .chat{margin:0 auto}
@@ -257,7 +234,6 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 @media (max-width:520px){
   body{font-size:16px}
   .hero-visual{min-height:330px}
-  .nums{grid-template-columns:1fr}
   .fcard-chat{font-size:12.5px}
 }
 </style>
@@ -346,41 +322,6 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
   </div>
 </section>
 
-<!-- ============ BEFORE / AFTER ============ -->
-<section class="sec sec-plate">
-  <div class="wrap">
-    <h2 class="disp rv">Фото продают.<br>Даже снятые <span class="hl">на телефон</span></h2>
-    <p class="sub rv" style="margin-bottom:40px">ИИ-фотостудия убирает фон и шум, выравнивает свет, центрирует товар и разглаживает ткань. Цвет и фактура остаются честными: покупатель получит то, что видел на фото.</p>
-
-    <div class="ba rv" id="ba">
-      <div class="ba-side ba-before">
-        <div class="ba-fill"><div class="ph" style="background:none;border:none"><em>МАКЕТ 4a: фото ДО (реальный товар, снятый на телефон)</em></div></div>
-        <span class="ba-tag">До</span>
-      </div>
-      <div class="ba-side ba-after">
-        <div class="ba-fill"><div class="ph" style="background:none;border:none"><em>МАКЕТ 4b: то же фото ПОСЛЕ ИИ-обработки</em></div></div>
-        <span class="ba-tag">После</span>
-      </div>
-      <div class="ba-handle"><div class="ba-knob">‹ ›</div></div>
-      <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Сравнить фото до и после обработки">
-    </div>
-    <p class="ba-hint">Потяните ползунок</p>
-  </div>
-</section>
-
-<!-- ============ NUMBERS ============ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="nums rv">
-      <div class="num"><b>2 <i>мин</i></b><span>от ссылки на канал до готовой витрины</span></div>
-      <div class="num"><b>x2,4</b><span>кликов по карточке товара после ИИ-ретуши фото</span></div>
-      <div class="num"><b>73<i>%</i></b><span>вопросов покупателей ИИ закрывает без менеджера</span></div>
-      <div class="num"><b>0 <i>₽</i></b><span>комиссия с продаж: платите только за подписку</span></div>
-    </div>
-    <p class="nums-foot">По данным внутренних тестов на каталогах одежды и косметики, апрель-июнь 2026.</p>
-  </div>
-</section>
-
 <!-- ============ STEPS ============ -->
 <section class="sec sec-plate">
   <div class="wrap">
@@ -425,6 +366,30 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
     </div>
 
     <div class="feat rev">
+      <div class="rv">
+        <h3>Фото продают. Даже <span class="hl">с телефона</span></h3>
+        <p>ИИ-фотостудия убирает фон и шум, выравнивает свет, центрирует товар и разглаживает ткань. Цвет и фактура остаются честными: покупатель получит то, что видел на фото.</p>
+        <ul>
+          <li>Пачка фото обрабатывается за минуты, а не за дни</li>
+          <li>Единый стиль карточек во всём каталоге</li>
+          <li>Оригиналы сохраняются, любую обработку можно откатить</li>
+        </ul>
+      </div>
+      <div class="feat-media rv">
+        <div class="media-pair">
+          <figure>
+            <div class="ph ph-tall" style="border-radius:14px"><em>МАКЕТ 4a: фото до (снято на телефон)</em></div>
+            <figcaption>До</figcaption>
+          </figure>
+          <figure>
+            <div class="ph ph-tall" style="border-radius:14px"><em>МАКЕТ 4b: то же фото после ИИ-обработки</em></div>
+            <figcaption>После</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
       <div class="rv">
         <h3>Один каталог. Продажи <span class="hl">везде</span></h3>
         <p>Клиент из канала покупает в mini app, клиент из Instagram или VK попадает на сайт, постоянные ставят ваше приложение с бонусами на телефон. Каталог один, обновляется везде сразу.</p>
@@ -724,20 +689,6 @@ if (!noMotion && plxEls.length) {
       ticking=false;
     });
   },{passive:true});
-}
-
-/* ---------- слайдер до/после ---------- */
-const ba=document.getElementById('ba');
-if(ba){
-  const after=ba.querySelector('.ba-after'), handle=ba.querySelector('.ba-handle'),
-        range=ba.querySelector('.ba-range');
-  let touched=false;
-  function setBa(v){
-    after.style.clipPath=`inset(0 0 0 ${v}%)`;
-    handle.style.left=v+'%';
-    if(!touched){touched=true;track('slider_drag');}
-  }
-  range.addEventListener('input',()=>setBa(range.value));
 }
 
 /* ---------- ночной чат: сообщения по очереди ---------- */
