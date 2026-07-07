@@ -696,8 +696,7 @@ document.querySelectorAll('.lead-form').forEach(form=>{
     box.push(lead); localStorage.setItem('sh_leads',JSON.stringify(box));
     /* отправка на endpoint, если настроен */
     if (CONFIG.formEndpoint) {
-      fetch(CONFIG.formEndpoint,{method:'POST',mode:'no-cors',
-        headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)}).catch(()=>{});
+      fetch(CONFIG.formEndpoint,{method:'POST',mode:'no-cors',body:JSON.stringify(lead)}).catch(()=>{});
     }
     form.classList.add('done');
     track('form_success',{form:form.dataset.form, plan:selectedPlan});
