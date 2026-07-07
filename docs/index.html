@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shopifier: ваш Telegram-канал уже магазин</title>
-<meta name="description" content="Вставьте ссылку на канал. ИИ соберёт каталог из постов, отретуширует фото до студийного уровня и будет сам отвечать покупателям. Магазин готов через 2 минуты.">
+<meta name="description" content="Вставьте ссылку на канал. Нейросеть соберёт каталог из постов и отретуширует фото до студийного уровня, а Шопи ответит покупателям. Магазин готов через 2 минуты.">
 <meta property="og:title" content="Ваш Telegram-канал уже магазин">
-<meta property="og:description" content="ИИ соберёт каталог из ваших постов, улучшит фото и будет отвечать клиентам 24/7. Покажем на вашем канале, бесплатно.">
+<meta property="og:description" content="Нейросеть соберёт каталог из ваших постов и улучшит фото, а продавец Шопи ответит клиентам 24/7. Покажем на вашем канале, бесплатно.">
 <meta property="og:image" content="assets/og-cover.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +64,10 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
 .hero h1 .row{display:block;white-space:nowrap}
 .hero .sub{margin:26px 0 30px}
 
+.mascot{display:flex;align-items:center;gap:12px;margin:-8px 0 22px;max-width:560px}
+.mascot-ava{width:48px;height:48px;border-radius:50%;background:var(--yellow);border:2px dashed var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:900;font-size:26px;flex-shrink:0}
+.mascot p{font-size:14.5px;color:var(--muted);line-height:1.45}
+.mascot b{color:var(--ink)}
 .lead-form{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:18px;box-shadow:6px 6px 0 var(--ink);max-width:560px}
 .lead-form label{font-size:13px;font-weight:700;display:block;margin:0 0 6px 2px;color:var(--muted)}
 .lead-form input{width:100%;font-family:var(--body);font-size:17px;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:12px;background:var(--paper);color:var(--ink)}
@@ -253,7 +257,13 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
           <span class="row">Ваш ТГ-канал</span>
           <span class="row"><span class="hl">уже магазин</span></span>
         </h1>
-        <p class="sub">Вставьте ссылку на Telegram-канал. ИИ найдёт товары в постах, соберёт каталог, отретуширует фото до студийного уровня и будет сам отвечать покупателям. Витрина с покупкой в один клик готова через пару минут.</p>
+        <p class="sub">Вставьте ссылку на Telegram-канал. Нейросеть найдёт товары в постах, соберёт каталог и отретуширует фото до студийного уровня. Витрина с покупкой в один клик готова через пару минут.</p>
+
+        <!-- аватар ниже: плейсхолдер, заменить на отрисованного персонажа (МАКЕТ 8) -->
+        <div class="mascot">
+          <span class="mascot-ava" aria-hidden="true">Ш</span>
+          <p>Знакомьтесь, это <b>Шопи</b>. Он соберёт магазин из вашего канала и будет отвечать покупателям, пока вы заняты.</p>
+        </div>
 
         <form class="lead-form" id="start" data-form="hero">
           <div class="form-fields">
@@ -266,7 +276,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
           </div>
           <div class="form-ok">
             <h3>Приняли!</h3>
-            <p>ИИ уже читает ваш канал. Демо-магазин пришлём вам в Telegram сегодня.</p>
+            <p>Шопи уже читает ваш канал. Демо-магазин пришлём вам в Telegram сегодня.</p>
             <a class="btn btn-yellow" href="#" data-tg-link data-track="cta_click" data-place="form_success">Написать нам сейчас</a>
           </div>
         </form>
@@ -278,10 +288,10 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
           <div class="fcard-cap">пост в канале, вчера</div>
         </div>
         <div class="fcard fcard-clean" data-plx="0.05">
-          <div class="ph ph-tall"><em>МАКЕТ 2: тот же товар после ИИ-ретуши, студийный вид</em></div>
+          <div class="ph ph-tall"><em>МАКЕТ 2: тот же товар после нейроретуши, студийный вид</em></div>
           <div class="fcard-price"><b>4 990 ₽</b><span>Купить в 1 клик</span></div>
         </div>
-        <div class="fcard fcard-chat" data-plx="0.1"><b>ИИ-продавец:</b> Да, 46 размер есть в наличии. Оформляем доставку СДЭК?</div>
+        <div class="fcard fcard-chat" data-plx="0.1"><b>Шопи:</b> Да, 46 размер есть в наличии. Оформляем доставку СДЭК?</div>
       </div>
     </div>
   </div>
@@ -314,7 +324,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
       </div>
       <div class="uc rv">
         <span class="uc-tag">Одежда и косметика</span>
-        <p><b>Продажи, пока вы спите.</b> ИИ-продавец отвечает про размеры и составы даже ночью, а постоянные клиенты повторяют заказ в один клик в вашем приложении.</p>
+        <p><b>Продажи, пока вы спите.</b> Шопи отвечает про размеры и составы даже ночью, а постоянные клиенты повторяют заказ в один клик в вашем приложении.</p>
       </div>
     </div>
   </div>
@@ -330,7 +340,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
         <p>Это всё, что нужно для старта. Без таблиц, выгрузок и заведения карточек руками. Канал остаётся вашим и работает как раньше.</p>
       </div>
       <div class="step rv">
-        <h3>ИИ собирает каталог</h3>
+        <h3>Нейросеть собирает каталог</h3>
         <p>Находит товары в постах, вытаскивает цены, размеры и описания, группирует фото по товарам и ретуширует каждую карточку.</p>
       </div>
       <div class="step rv">
@@ -351,7 +361,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
     <div class="feat">
       <div class="rv">
         <h3>Каталог собирается <span class="hl">сам</span></h3>
-        <p>ИИ читает ваш канал как человек: понимает, где товар, а где мем, склеивает фото одной вещи в одну карточку, распознаёт цены и размеры прямо из текста поста.</p>
+        <p>Нейросеть читает ваш канал как человек: понимает, где товар, а где мем, склеивает фото одной вещи в одну карточку, распознаёт цены и размеры прямо из текста поста.</p>
         <ul>
           <li>Новый пост в канале превращается в карточку автоматически</li>
           <li>МойСклад и 1С подключаются позже: остатки и цены обновляются сами</li>
@@ -366,7 +376,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
     <div class="feat rev">
       <div class="rv">
         <h3>Фото продают. Даже <span class="hl">с телефона</span></h3>
-        <p>ИИ-фотостудия убирает фон и шум, выравнивает свет, центрирует товар и разглаживает ткань. Цвет и фактура остаются честными: покупатель получит то, что видел на фото.</p>
+        <p>Нейрофотостудия убирает фон и шум, выравнивает свет, центрирует товар и разглаживает ткань. Цвет и фактура остаются честными: покупатель получит то, что видел на фото.</p>
         <ul>
           <li>Пачка фото обрабатывается за минуты, а не за дни</li>
           <li>Единый стиль карточек во всём каталоге</li>
@@ -380,7 +390,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
             <figcaption>До</figcaption>
           </figure>
           <figure>
-            <div class="ph ph-tall" style="border-radius:14px"><em>МАКЕТ 4b: то же фото после ИИ-обработки</em></div>
+            <div class="ph ph-tall" style="border-radius:14px"><em>МАКЕТ 4b: то же фото после нейрообработки</em></div>
             <figcaption>После</figcaption>
           </figure>
         </div>
@@ -390,7 +400,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
     <div class="feat">
       <div class="rv">
         <h3>Витрина в стиле <span class="hl">вашего бренда</span></h3>
-        <p>ИИ считывает характер вашего канала и собирает витрину под него: палитра, шрифты, логотип, баннеры акций. Это не шаблон конструктора, а продолжение бренда.</p>
+        <p>Нейросеть считывает характер вашего канала и собирает витрину под него: палитра, шрифты, логотип, баннеры акций. Это не шаблон конструктора, а продолжение бренда.</p>
         <ul>
           <li>Уникальная палитра и фирменные шрифты подбираются автоматически</li>
           <li>Баннеры новинок и акций рисуются из ваших же карточек</li>
@@ -427,8 +437,8 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
   <div class="wrap">
     <div class="night-grid">
       <div>
-        <h2 class="disp rv">3:12. Продавец <span class="hl">на месте</span></h2>
-        <p class="sub rv">ИИ-продавец отвечает по вашему каталогу: состав, размеры, наличие, доставка. Собирает заказ и передаёт вам утром уже тёплого клиента.</p>
+        <h2 class="disp rv">3:12. Шопи <span class="hl">на месте</span></h2>
+        <p class="sub rv">Шопи отвечает по вашему каталогу: состав, размеры, наличие, доставка. Собирает заказ и передаёт вам утром уже тёплого клиента.</p>
         <ul class="night-points rv">
           <li>Знает наличие и цены из каталога, не выдумывает</li>
           <li>Не уверен в ответе: честно зовёт вас и помечает диалог как горячий</li>
@@ -437,8 +447,8 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
       </div>
       <div class="chat rv" id="chat">
         <div class="chat-head">
-          <div class="chat-ava">AI</div>
-          <div><b>Ваш магазин</b><span>онлайн</span></div>
+          <div class="chat-ava">Ш</div>
+          <div><b>Шопи · ваш магазин</b><span>онлайн</span></div>
         </div>
         <div class="msg msg-in">Добрый вечер! Пальто из последнего поста, есть 46? И какой состав?<span class="mts">3:12</span></div>
         <div class="msg msg-out">Здравствуйте! Да, 46 в наличии, осталось 2 шт. Состав: 70% шерсть, 30% вискоза, подклад полиэстер.<span class="mts">3:12</span></div>
@@ -500,7 +510,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
           <li>До 100 товаров</li>
           <li>Каталог из канала за 2 минуты</li>
           <li>Mini app в Telegram + сайт-витрина</li>
-          <li>ИИ-ретушь: 100 фото в месяц</li>
+          <li>Нейроретушь: 100 фото в месяц</li>
           <li>Приём оплат, без комиссии с продаж</li>
         </ul>
         <button class="btn" data-plan="start">Занять место в бете</button>
@@ -514,10 +524,10 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
         <ul>
           <li>До 1 000 товаров</li>
           <li>Всё из тарифа Старт</li>
-          <li>ИИ-продавец 24/7</li>
+          <li>Продавец Шопи 24/7</li>
           <li>Приложение с программой лояльности</li>
           <li>МойСклад и 1С: остатки и цены сами</li>
-          <li>Ретушь без лимита + сторис и посты из каталога</li>
+          <li>Нейроретушь без лимита + сторис и посты из каталога</li>
         </ul>
         <button class="btn" data-plan="rost">Занять место в бете</button>
       </div>
@@ -554,11 +564,11 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
         <div class="a">И не нужно. Каталог соберём из постов канала, наличие отметите прямо в кабинете. МойСклад или 1С подключите позже, если захотите: тогда остатки и цены будут обновляться сами.</div>
       </details>
       <details data-q="photo">
-        <summary>ИИ не «перерисует» мой товар на фото?</summary>
+        <summary>Нейросеть не «перерисует» мой товар на фото?</summary>
         <div class="a">Нет. Меняем фон, свет и геометрию кадра, товар не трогаем: цвет, фактура и детали остаются честными. Каждое фото вы подтверждаете перед публикацией, оригиналы сохраняются.</div>
       </details>
       <details data-q="ai_wrong">
-        <summary>А если ИИ-продавец ответит клиенту ерунду?</summary>
+        <summary>А если Шопи ответит клиенту ерунду?</summary>
         <div class="a">Он отвечает только по данным каталога: наличие, цены, составы, условия доставки. Если вопрос вне каталога, честно пишет, что уточнит у менеджера, и помечает диалог как горячий. Все переписки видны вам, вмешаться можно в любую секунду.</div>
       </details>
       <details data-q="small">
@@ -592,7 +602,7 @@ h2.disp{font-size:clamp(52px,8.5vw,118px);margin-bottom:clamp(28px,4vw,52px)}
         </div>
         <div class="form-ok">
           <h3>Приняли!</h3>
-          <p>ИИ уже читает ваш канал. Демо пришлём в Telegram сегодня.</p>
+          <p>Шопи уже читает ваш канал. Демо пришлём в Telegram сегодня.</p>
           <a class="btn" href="#" data-tg-link data-track="cta_click" data-place="form_success_final">Написать нам сейчас</a>
         </div>
       </form>
